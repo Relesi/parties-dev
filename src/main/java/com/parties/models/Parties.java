@@ -7,7 +7,6 @@ import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-
 @SuppressWarnings("deprecation")
 @Entity
 public class Parties {
@@ -18,16 +17,61 @@ public class Parties {
 
 	@NotBlank
 	private String nome;
-	
+
 	@NotBlank
 	private String local;
-	
+
 	@NotBlank
 	private String data;
-	
+
 	@NotBlank
 	private String horario;
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (codigo ^ (codigo >>> 32));
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
+		result = prime * result + ((horario == null) ? 0 : horario.hashCode());
+		result = prime * result + ((local == null) ? 0 : local.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Parties other = (Parties) obj;
+		if (codigo != other.codigo)
+			return false;
+		if (data == null) {
+			if (other.data != null)
+				return false;
+		} else if (!data.equals(other.data))
+			return false;
+		if (horario == null) {
+			if (other.horario != null)
+				return false;
+		} else if (!horario.equals(other.horario))
+			return false;
+		if (local == null) {
+			if (other.local != null)
+				return false;
+		} else if (!local.equals(other.local))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		return true;
+	}
 
 	public long getCodigo() {
 		return codigo;
