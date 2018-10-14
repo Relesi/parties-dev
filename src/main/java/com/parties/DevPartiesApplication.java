@@ -1,4 +1,4 @@
-package com.parties.devparties;
+package com.parties;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

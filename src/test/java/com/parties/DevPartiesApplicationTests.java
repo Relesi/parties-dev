@@ -1,4 +1,4 @@
-package com.parties.devparties;
+package com.parties;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
